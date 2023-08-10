@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Css-Skeleton</title>
+    <style>
+        :root {
+            --loading-grey: #ededed;
+        }
+        body {
+            background-color: #f6f6f6;
+            font-family: Helvetica;
+            min-height: 100vh;
+        }
+
+        .flex-center {
+            display: flex;
+            align-items: center;
+            /* 平分空白 */
+            justify-content: space-evenly;
+        }
+
+        .card {
+            width: 320px;
+            background-color: #fff;
+            border-radius: 6px;
+            /* 为了让图片不溢出 */
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, .12);
+        }
+
+        .image {
+            height: 200px;
+        }
+
+        .image img {
+            /* 默认为inline */
+            display: block;
+            width: 100%;
+            height: inherit;
+            /* 保持比例 */
+            object-fit: cover;
+        }
+
+        .content {
+            padding: 2rem 1.8rem;
+        }
+
+        .content h4 {
+            margin: 0 0 1rem;
+            font-size: 1.5rem;
+            line-height: 1.5rem;
+        }
+
+        .description {
+            font-size: 1rem;
+            line-height: 1.4rem;
+        }
+
+        /* 图片、标题、内容的骨架背景色为灰色 */
+        .loading .image,
+        .loading h4,
+        .loading .description {
+            /* background-color: var(--loading-grey); */
+            background: linear-gradient(
+                100deg,
+                blue 40%,
+                red 50%,
+                blue 60%
+            );
+            /* 宽度拉成200% */
+            background-size: 200% 100%;
+            /* 通过改变背景的位置来实现扫描的效果 */
+            background-position-x: 120%;
+            animation: 1s screen infinite;
+        }
+
+        @keyframes screen {
+            to {
+                background-position-x: -20%;
+            }
+        }
+
+        /* 撑开一些高度 */
+        .loading h4 {
+            min-height: 1.6rem;
+            border-radius: 4px;
+            animation-delay: .05s;
+        }
+
+        .loading .description {
+            min-height: 4rem;
+            border-radius: 4px;
+            animation-delay: .06s;
+        }
+    </style>
+</head>
+<body class="flex-center">
+    <div class="card">
+        <div class="image">
+            <img src="https://assets.codepen.io/2002878/wake-up-and-code.jpg" alt="" srcset="">
+        </div>
+        <div class="content">
+            <h4>CodingStartup</h4>
+            <div class="description">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ex quasi enim facere commodi omnis...</div>
+        </div>
+    </div>
+
+    <div class="card loading">
+        <div class="image"> 
+        </div>
+        <div class="content">
+            <h4></h4>
+            <div class="description"></div>
+        </div>
+    </div>
+</body>
+</html>
