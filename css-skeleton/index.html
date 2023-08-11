@@ -66,9 +66,9 @@
         .loading .description {
             /* background-color: var(--loading-grey); */
             background: linear-gradient(100deg,
-                    blue 40%,
-                    red 50%,
-                    blue 60%);
+                    rgba(255, 255, 255, 0) 40%,
+                    rgba(255, 255, 255, .5) 50%,
+                    rgba(255, 255, 255, 0) 60%) var(--loading-grey);
             /* 宽度拉成200% */
             background-size: 200% 100%;
             /* 因为background-repeat的默认值为repeat */
@@ -78,7 +78,7 @@
                 (container height - image height) * (position y%) = (y offset value) 
             */
             /* 通过改变背景的位置来实现扫描的效果 */
-            background-position-x: 120%;
+            background-position-x: 180%;
             animation: 1s screen infinite;
         }
 
